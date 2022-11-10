@@ -1,54 +1,25 @@
-// Console.log executando no browser
-// console.log("Hello, World!");
+console.log("script linkado!");
 
-// Objeto document representação da página no JS
-console.log(document);
+//captura de elementos
+const btSalvar =  document.querySelector('#form button[type=submit]');
+const inputTexto = document.getElementById("texto")
 
-const lista = document.getElementById("task-list");
-console.log(lista);
+//definição das funções a serem executadas
 
-// Com o elemento em mãos podemos
-// manipular seu conteúdo, aparência
-// e comportamento;
+const onBtSalvarclick =()=>{
+    console.log("Botão salvar foi clicado");
+    alert("foi clicado!")
+}
 
-// Manipulação de conteúdo:
-// lista.innerHTML: Conteúdo HTML do elemento
-// lista.appendChild(): Função para adicionar elemento
-// lista.removeChild(): Função que remove um elemento dele
-lista.innerHTML =
-                lista.innerHTML + `
-                <li id="task_1">
-                    <input type="checkbox" id="check_1">
-                    <label for="check_1">Uma tarefa MFP Bacanuda!</label>
-                    <i class="material-icons">delete</i>
-                </li>`;
+//pressionando tecla
+const onInputTextoKeyDown = (evento)=>{
+    console.log("Tecla pressionada...")
+    console.log(evento);
+}
 
-// Queremos agora remover o primeiro item da lista...
-// lista.removeChild(oFilho): Remove um filho...
-let primeiroLi = document.querySelector("#task-list li:nth-child(1)");
-lista.removeChild(primeiroLi); // Pai removendo o filho
-// primeiroLi.remove(); // O próprio filho se removendo
+//conexão de evento á função (evento handler)
+//formar 1 (feia)
+btSalvar.onClick = onBtSalvarClick;
+inputTexto.onkeydown = onInputTextoKeyDown;
 
-let itensDaLista = document.querySelectorAll("#task-list li");
-console.log(itensDaLista);
 
-// Fazer com que o botão SUMA!!!
-// Capturar o botão...
-let btAddTask = document.querySelector('#form button[type=submit]');
-
-// Remover o botão... ou só fazer com que ele não apareça
-// btAddTask.remove();
-
-// Mudando a cor de fundo... aparências em geral...
-btAddTask.style = "background-color: rgba(0, 0, 0, 0.5)";
-btAddTask.classList.add('sucesso');
-
-btAddTask.parentNode.style = "background-color: #0000FF; padding: 20px"
-
-// btAddTask.className
-
-//outras funções de captura do elemento
-document.getElementsByClassName
-document.getElementsByName
-document.getElementsByTagName
-document.
